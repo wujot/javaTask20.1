@@ -19,11 +19,21 @@ public class Shop {
 
     public boolean hasItem(String itemName) {
         // TODO dodaj kod sprawdzający czy sklep na w asortymencie przedmot o danej nazwie
+        for (Item item : stock.keySet()) {
+            if (item.getName().equals(itemName)) {
+                return true;
+            }
+        }
         return false;
     }
 
     public Item findItemByName(String itemName) {
         // TODO dodaj kod wyszukujący przedmiot po jego nazwie
+        for (Item item : stock.keySet()) {
+            if (item.getName().equals(itemName)) {
+                return item;
+            }
+        }
         return null;
     }
 
@@ -31,9 +41,11 @@ public class Shop {
         return money;
     }
 
+    public void setMoney(int money) {
+        this.money = money;
+    }
+
     public Map<Item, Integer> getStock() {
         return stock;
     }
-
-
 }
